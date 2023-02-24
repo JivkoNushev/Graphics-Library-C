@@ -1,7 +1,7 @@
 CXX = gcc
 CXX_FLAGS = -Wall 
 
-EXECS = main.o
+SOURCE_FILES = main.c pencil.c
 
-main.o: main.c
-	${CXX} ${CXX_FLAGS} main.c -o a.o
+main.o: main.c pencil.h
+	${CXX} ${CXX_FLAGS} ${SOURCE_FILES} -o ./bin/greenBackground.o
