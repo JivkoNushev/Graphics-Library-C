@@ -5,6 +5,46 @@
 #include "ErrorHandling/errorHandler.h"
 #include "pencil.h"
 
+void pencil_draw_rectangle(
+    uint32_t *pixels, 
+    size_t pixels_width,
+    size_t pixels_height,
+    int rectangle_x,
+    int rectangle_y,
+    size_t rectangle_width,
+    size_t rectangle_height,
+    uint32_t color)
+{
+    for(size_t dy = 0; dy < rectangle_height; ++dy)
+    {
+        size_t y = rectangle_y + dy;
+        for(size_t dx = 0; dx < rectangle_width; ++dx)
+        {
+            size_t x = rectangle_x + dx;
+
+            pixels[y * pixels_width + x] = color;
+        }
+    }
+}
+
+void pencil_draw_rectangle_t(
+    uint32_t *pixels, 
+    size_t pixels_width,
+    size_t pixels_height,
+    Rectangle* rectangle)
+{
+    for(size_t dy = 0; dy < rectangle->height; ++dy)
+    {
+        size_t y = rectangle->y + dy;
+        for(size_t dx = 0; dx < rectangle->width; ++dx)
+        {
+            size_t x = rectangle->x + dx;
+
+            pixels[y * pixels_width + x] = rectangle->color;
+        }
+    }
+}
+
 void pencil_fill_full(
     uint32_t *pixels, 
     size_t pixels_width,
@@ -12,7 +52,7 @@ void pencil_fill_full(
     uint32_t color)
 {
     // coloring every pixel one by one
-    for(size_t i = 0; i < pixels_width * pixels_height; i++)
+    for(size_t i = 0; i < pixels_width * pixels_height; ++i)
     {
         pixels[i] = color;
     }

@@ -3,6 +3,9 @@
         "pencil.h": "c",
         "errno.h": "c",
         "cstdio": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "errorhandler.h": "c",
+        "sdl.h": "c",
+        "sdl_events.h": "c"
     }
 }
